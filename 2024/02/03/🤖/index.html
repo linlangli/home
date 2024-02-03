@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="John Doe">
+
+
+    <meta name="subtitle" content="🏠">
+
+
+
+
+<title>🤖 | linlangli</title>
+
+
+
+    <link rel="icon" href="/home/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/home/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/home/js/script.js"></script>
+    
+    <script src="/home/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/home/">Bentham&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/home/archives">Posts</a>
+                
+                    <a class="menu-item" href="/home/categories">Categories</a>
+                
+                    <a class="menu-item" href="/home/tags">Tags</a>
+                
+                    <a class="menu-item" href="/home/about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/home/">Bentham&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/home/archives">Posts</a>
+                
+                    <a class="menu-item" href="/home/categories">Categories</a>
+                
+                    <a class="menu-item" href="/home/tags">Tags</a>
+                
+                    <a class="menu-item" href="/home/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">🤖</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">John Doe</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">February 3, 2024&nbsp;&nbsp;16:14:30</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="事件分发"><a href="#事件分发" class="headerlink" title="事件分发"></a>事件分发</h1><h2 id="分发过程"><a href="#分发过程" class="headerlink" title="分发过程"></a>分发过程</h2><p>设备输入事件由系统InputReader线程进行监听读取，读取到类似于触摸事件等操作，会将其放入队列中，并通知InputDispatcher线程来该队列取输入事件，然后通过Socket机制，进行跨进程双向通信，将输入事件传送给APP进程。</p>
+<p>![[输入事件派发到APP.webp]]</p>
+<p>APP在获取到输入事件后，ViewImpI 在 setView 方法中将链表结构的输入事件组装责任链，其中ViewPostImeInputStage 即为处理视图输入事件的阶段对象，当执行该对象的 onProcess 方法时，会调用view的 dispatchTouchEvent 方法进行事件分发。<br>ViewImpI中的view即为顶级容器 DecorView。事件会从该容器进行分发，先分发到 Activity，由于Activity只持有Window对象，其并不知道 DecorView 的存在，所以会先分发到 Window 然后再回到 DecorView</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DecorView.java</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> &#123;</span><br><span class="line">        <span class="comment">//cb其实就是对应的Activity/Dialog</span></span><br><span class="line">        <span class="keyword">final</span> Window.<span class="type">Callback</span> <span class="variable">cb</span> <span class="operator">=</span> mWindow.getCallback();</span><br><span class="line">        <span class="keyword">return</span> cb != <span class="literal">null</span> &amp;&amp; !mWindow.isDestroyed() &amp;&amp; mFeatureId &lt; <span class="number">0</span></span><br><span class="line">                ? cb.dispatchTouchEvent(ev) : <span class="built_in">super</span>.dispatchTouchEvent(ev);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// Activity.java</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">            onUserInteraction();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (getWindow().superDispatchTouchEvent(ev)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> onTouchEvent(ev);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// PhoneWindow.java</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">superDispatchTouchEvent</span><span class="params">(MotionEvent event)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> mDecor.superDispatchTouchEvent(event);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// DecorView.java</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">superDispatchTouchEvent</span><span class="params">(MotionEvent event)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">super</span>.dispatchTouchEvent(event);</span><br><span class="line">    &#125;    </span><br></pre></td></tr></table></figure>
+
+<p>接下来就开始自上而下递归式分发，主要由事件分发方法 dispatchTouchEvent ，事件拦截方法onInterceptTouchEvent 和事件处理方法 onTouchEvent。首先在事件分发方法中，如果输入事件时 ActionDown或 mFirstTouchTarget 不会空，即事件是按下操作或者已经有子View消费过事件了，就会调用事件拦截方法判断是否拦截事件。<br>如果拦截该事件，且事件未被消费过，则会调用ViewGroup自身父类的 dispatchTouchEvent 方法，最终会执行 onTouchEvent 消费事件。<br>如果不拦截该事件，子View满足在点击区域内，事件就会被分发到子View，最终调用子View的 OnTouchEvent，如果消费了事件，则返回true，为mFirstTouchTarget赋值。mFirstTouchTarget为链表结构，会通过头插法方法在链表中添加新值。<br>View的 dispatchTouchEvent 主要根据是否可点击，是否执行了 onTouch 并返回了true，以及是否执行了 onTouchEvent 并返回了true，其中如果 onTouch 方法返回了true，则不会再执行 onTouchEvent 方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ViewGroup</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">final</span> <span class="type">boolean</span> intercepted;</span><br><span class="line">        <span class="comment">//只有ActionDown或者mFirstTouchTarget为空时才会判断是否拦截</span></span><br><span class="line">        <span class="keyword">if</span> (actionMasked == MotionEvent.ACTION_DOWN|| mFirstTouchTarget != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">final</span> <span class="type">boolean</span> <span class="variable">disallowIntercept</span> <span class="operator">=</span> (mGroupFlags &amp; FLAG_DISALLOW_INTERCEPT) != <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (!disallowIntercept) &#123;</span><br><span class="line">                intercepted = onInterceptTouchEvent(ev);</span><br><span class="line">            &#125; </span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (!canceled &amp;&amp; !intercepted) &#123;</span><br><span class="line">            <span class="comment">//事件传递给子view</span></span><br><span class="line">            ....</span><br><span class="line">            <span class="keyword">if</span> (dispatchTransformedTouchEvent(ev, <span class="literal">false</span>, child, idBitsToAssign)) &#123;</span><br><span class="line">            	...</span><br><span class="line">            	<span class="comment">//如果子View消耗了则给mFirstTouchTarget赋值</span></span><br><span class="line">            	newTouchTarget = addTouchTarget(child, idBitsToAssign);</span><br><span class="line">            	...</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//mFirstTouchTarget不为空时会调用dispatchTransformendTouchEvent</span></span><br><span class="line">        <span class="keyword">if</span> (mFirstTouchTarget == <span class="literal">null</span>) &#123;</span><br><span class="line">            handled = dispatchTransformedTouchEvent(ev, canceled, <span class="literal">null</span>,</span><br><span class="line">                        TouchTarget.ALL_POINTER_IDS);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">dispatchTransformedTouchEvent</span><span class="params">(View child)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (child == <span class="literal">null</span>) &#123;</span><br><span class="line">            handled = <span class="built_in">super</span>.dispatchTouchEvent(event);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            handled = child.dispatchTouchEvent(event);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// View</span></span><br><span class="line">	<span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent event)</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (onFilterTouchEventForSecurity(event)) &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="type">ListenerInfo</span> <span class="variable">li</span> <span class="operator">=</span> mListenerInfo;</span><br><span class="line">            <span class="keyword">if</span> (li != <span class="literal">null</span> &amp;&amp; li.mOnTouchListener != <span class="literal">null</span></span><br><span class="line">                    &amp;&amp; (mViewFlags &amp; ENABLED_MASK) == ENABLED</span><br><span class="line">                    &amp;&amp; li.mOnTouchListener.onTouch(<span class="built_in">this</span>, event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (!result &amp;&amp; onTouchEvent(event)) &#123;</span><br><span class="line">                result = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>View在事件消费方法 onTouchEvent 中，如果返回了true，即消费了事件，那么就一路return回到Activity，Activity中的 dispatchTouchEvent 也会返回true。否则就一路return false，最终执行Activity的 onTouchEvent 方法，传回给Activity消费。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dispatchTouchEvent</span><span class="params">(MotionEvent ev)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (ev.getAction() == MotionEvent.ACTION_DOWN) &#123;</span><br><span class="line">        onUserInteraction();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (getWindow().superDispatchTouchEvent(ev)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> onTouchEvent(ev);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当处理完ActionDown事件后，alreadyDispatchedToNewTouchTarget会被赋值为true，之后的输入事件，比如ActionMove等，由于已经找到处理事件的目标View，所以不会再走循环判断子View是否满足分发条件的逻辑。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// dispatchTouchEvent</span></span><br><span class="line"><span class="keyword">if</span> (dispatchTransformedTouchEvent(ev, <span class="literal">false</span>, child, idBitsToAssign)) &#123;  </span><br><span class="line">    <span class="comment">// Child wants to receive touch within its bounds.  </span></span><br><span class="line">    mLastTouchDownTime = ev.getDownTime();  </span><br><span class="line">    <span class="keyword">if</span> (preorderedList != <span class="literal">null</span>) &#123;  </span><br><span class="line">        <span class="comment">// childIndex points into presorted list, find original index  </span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; childrenCount; j++) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (children[childIndex] == mChildren[j]) &#123;  </span><br><span class="line">                mLastTouchDownIndex = j;  </span><br><span class="line">                <span class="keyword">break</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        mLastTouchDownIndex = childIndex;  </span><br><span class="line">    &#125;  </span><br><span class="line">    mLastTouchDownX = x;  </span><br><span class="line">    mLastTouchDownY = y;  </span><br><span class="line">    newTouchTarget = addTouchTarget(child, idBitsToAssign);  </span><br><span class="line">    alreadyDispatchedToNewTouchTarget = <span class="literal">true</span>;  </span><br><span class="line">    <span class="keyword">break</span>;  </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (target != <span class="literal">null</span>) &#123;  </span><br><span class="line">    <span class="keyword">final</span> <span class="type">TouchTarget</span> <span class="variable">next</span> <span class="operator">=</span> target.next;  </span><br><span class="line">    <span class="keyword">if</span> (alreadyDispatchedToNewTouchTarget &amp;&amp; target == newTouchTarget) &#123;  </span><br><span class="line">        handled = <span class="literal">true</span>;  </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">        <span class="keyword">final</span> <span class="type">boolean</span> <span class="variable">cancelChild</span> <span class="operator">=</span> resetCancelNextUpFlag(target.child)  </span><br><span class="line">                || intercepted;  </span><br><span class="line">        <span class="keyword">if</span> (dispatchTransformedTouchEvent(ev, cancelChild,  </span><br><span class="line">                target.child, target.pointerIdBits)) &#123;  </span><br><span class="line">            handled = <span class="literal">true</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span> (cancelChild) &#123;  </span><br><span class="line">            <span class="keyword">if</span> (predecessor == <span class="literal">null</span>) &#123;  </span><br><span class="line">                mFirstTouchTarget = next;  </span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                predecessor.next = next;  </span><br><span class="line">            &#125;  </span><br><span class="line">            target.recycle();  </span><br><span class="line">            target = next;  </span><br><span class="line">            <span class="keyword">continue</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    predecessor = target;  </span><br><span class="line">    target = next;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="滑动冲突"><a href="#滑动冲突" class="headerlink" title="滑动冲突"></a>滑动冲突</h2><h3 id="外部拦截发"><a href="#外部拦截发" class="headerlink" title="外部拦截发"></a>外部拦截发</h3><p>重写 onInterceptTouchEvent</p>
+<h1 id="数据结构与算法"><a href="#数据结构与算法" class="headerlink" title="数据结构与算法"></a>数据结构与算法</h1><h1 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h1>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>John Doe</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://linlangli.github.io/home/2024/02/03/%F0%9F%A4%96/">https://linlangli.github.io/home/2024/02/03/%F0%9F%A4%96/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span>Do you believe in <strong>DESTINY</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/home/tags/%E9%9D%A2%E8%AF%95/"># 面试</a>
+                    
+                        <a href="/home/tags/Android/"># Android</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/home/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/home/2024/02/03/%F0%9F%8F%A0/">🏠</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© John Doe | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
